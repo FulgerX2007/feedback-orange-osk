@@ -22,3 +22,4 @@ Route::get(
 );
 
 Route::get('/api/auth', 'AuthController@ldapAuth');
+Route::get('/api/auth/import', 'AuthController@importAllUsers');

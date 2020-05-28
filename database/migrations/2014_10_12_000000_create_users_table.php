@@ -17,15 +17,14 @@ class CreateUsersTable extends Migration
             'users',
             function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('name');
+                $table->string('guid')->unique();
+                $table->string('name'); // displayName
+                $table->string('email')->unique(); // mail
+                $table->string('username');
+                $table->string('title');
+                $table->string('mobile')->nullable();
+                $table->mediumText('thumbnailPhoto')->nullable();
 
-                // From:
-                $table->string('email')->unique();
-
-                // To:
-                $table->string('username')->unique();
-
-                $table->string('password');
                 $table->rememberToken();
                 $table->timestamps();
             }

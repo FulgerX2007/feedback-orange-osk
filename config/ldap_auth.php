@@ -11,7 +11,7 @@ return [
 
     'identifiers' => [
         'ldap' => [
-            'locate_users_by' => 'userprincipalname',
+            'locate_users_by' => 'mail',
             'bind_users_by' => 'distinguishedname',
         ],
         'database' => [
@@ -29,8 +29,9 @@ return [
     ],
     'login_fallback' => env('LDAP_LOGIN_FALLBACK', false),
     'sync_attributes' => [
-        'email' => 'userprincipalname',
+        'email' => 'mail',
         'name' => 'cn',
+        'guid' => 'objectGUID',
     ],
     'logging' => [
         'enabled' => env('LDAP_LOGGING', true),
